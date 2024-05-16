@@ -17,23 +17,28 @@ form.addEventListener('submit', (e) => {
   const passwordVal = password.value;
   console.log(fName, lName, emailVal, passwordVal);
 
+  // Check first name
   if (fName === '') {
     firstName.classList.add('error');
   } else {
     firstName.classList.remove('error');
   }
+  // Check last name
 
   if (lName === '') {
     lastName.classList.add('error');
   } else {
     lastName.classList.remove('error');
   }
+  // Check email
 
   if (!validateEmail(emailVal) || emailVal === '') {
     email.classList.add('error');
   } else {
     email.classList.remove('error');
   }
+
+  // Check password
 
   if (passwordVal === '') {
     password.classList.add('error');
