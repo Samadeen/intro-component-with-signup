@@ -26,7 +26,7 @@ body {
   justify-content: center;
 }
 
-main {
+.container {
   max-width: 80vw;
   margin: 0 auto;
   display: flex;
