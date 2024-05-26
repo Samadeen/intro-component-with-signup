@@ -1,54 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Intro component with sign up form</title>
 
-    <title>Frontend Mentor | Intro component with sign up form</title>
-    <link rel="stylesheet" href="./styles.css" />
-    <script src="./app.js" defer></script>
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  </head>
-  <body>
-    <main class="container">
-      <div class="container-text">
-        <h1>Learn to code by watching others</h1>
-        <p>
-          See how experienced developers solve problems in real-time. Watching
-          scripted tutorials is great, but understanding how developers think is
-          invaluable.
-        </p>
-      </div>
-      <div class="container-form">
-        <h4>Try it free 7 days<span> then $20/mo. thereafter</span></h4>
-        <form action="" id="form">
-          <label for="firstName">
-            <input type="text" class="firstName" placeholder="First Name" />
-          </label>
-          <label for="lastName">
-            <input type="text" class="lastName" placeholder="Last Name" />
-          </label>
-          <label for="email">
-            <input type="email" class="email" placeholder="Email" />
-          </label>
-          <label for="password">
-            <input type="password" class="password" placeholder="Password" />
-          </label>
-          <button id="button">Claim your free trial</button>
-          <small
-            >By clicking the button, you are agreeing to our
-            <span> Terms and Services</span></small
-          >
-        </form>
-      </div>
-    </main>
-  </body>
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+<div class="page_container">
+  <div class="header">
+  <h1>Learn to code by 
+    watching others</h1>
+
+  <p>See how experienced developers solve problems in real-time. Watching scripted tutorials is great, 
+  but understanding how developers think is invaluable.</p> 
+</div>
+<div class="forms_container">
+  <button class="btn_action"><span><strong>Try it free 7 days</strong> then $20/mo. thereafter</span>
+  </button>
+<!--přidat divy na error zprávy, sem nebo do js-->
+<form id="form" novalidate>
+  <input id="firstName" name="name" type="text"  placeholder="First Name" title="Input your First name"  required>
+  <div class="form_error"><em>First Name cannot be empty</em></div>
+  <input id="lastName" name="lastName" type="text" placeholder="Last Name" title="Input your Last name" required>
+  <div class="form_error"><em>Last Name cannot be empty</em></div>
+  <input id="email" name="email" type="email" placeholder="Email Address" title="Input your email" required>
+  <div class="form_error"><em>Looks like this is not an email</em></div>
+  <input id="password" name="password" type="password" placeholder="Password" title="Input any password" required>
+  <div class="form_error"><em>Password cannot be empty</em></div>
+  <input id="formSubmit" class="btn_submit" name="submit" type="submit" value="Claim your free trial">
+  <p>
+  By clicking the button, you are agreeing to our <a>Terms and Services</a>
+  </p>
+</form>
+</div> 
+</div>
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://www.linkedin.com/in/oluwaseun-alli-aa4a812ba/">Alli Oluwaseun</a>.
+    </p>
+  </footer>
+  <script src="app.js"></script>
+</body>
 </html>

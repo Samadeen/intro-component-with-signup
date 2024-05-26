@@ -1,55 +1,39 @@
-const form = document.getElementById('form');
-const button = document.getElementById('button');
-const firstName = document.querySelector('.firstName');
-const lastName = document.querySelector('.lastName');
-const email = document.querySelector('.email');
-const password = document.querySelector('.password');
+/* form validation
+- objevení vykřičníku a textu pod formulářem */
 
-console.log(firstName);
+var exclamation = document.getElementsByClassName("error");
+var form = document.getElementById("form");
+var firstName = document.getElementById("firstName");
+var lastName = document.getElementById("lastName");
+var email = document.getElementById("email");
+var password = document.getElementById("password");
+var formError = document.getElementsByClassName("form_error");
+var input = document.getElementsByTagName("input");
 
-// console.log(firstName, lastName, email, password);
+/* validation*/
+  function formValidation(event) {
+    /*for loop for all input fields except submit input, so it is 4*/
+    for (i = 0; i < 4; i++){
+      /*clear the form*/
+      input[i].classList.remove("error");
+      formError[i].style.display = "none";
+      
+      /*email validation*/
+      if (!email.validity.valid) {
+        formError[2].style.display = "block";
+        email.classList.add("error");
+        event.preventDefault();
+      }
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const fName = firstName.value;
-  const lName = lastName.value;
-  const emailVal = email.value;
-  const passwordVal = password.value;
-  console.log(fName, lName, emailVal, passwordVal);
+      /*validation of other fields*/
+      if((input.type != "email" || input.type != "submit") && input[i].value == ""){
+      formError[i].style.display = "block";
+      input[i].classList.add("error");
+      event.preventDefault();
+      }
+    }
 
-  // Check first name
-  if (fName === '') {
-    firstName.classList.add('error');
-  } else {
-    firstName.classList.remove('error');
-  }
-  // Check last name
-
-  if (lName === '') {
-    lastName.classList.add('error');
-  } else {
-    lastName.classList.remove('error');
-  }
-  // Check email
-
-  if (!validateEmail(emailVal) || emailVal === '') {
-    email.classList.add('error');
-  } else {
-    email.classList.remove('error');
   }
 
-  // Check password
-
-  if (passwordVal === '') {
-    password.classList.add('error');
-  } else {
-    password.classList.remove('error');
-  }
-});
-
-//Validate email
-function validateEmail(email) {
-  var re =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
-}
+  /*event listener on button, call the formValidation function*/
+  form.addEventListener("submit", formValidation, false)
