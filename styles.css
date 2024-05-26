@@ -26,6 +26,14 @@ body {
   justify-content: center;
 }
 
+.error-text, .error-icon {
+  display: none;
+}
+
+.field-group.error .error-text, .field-group.error .error-icon {
+  display: block;
+}
+
 .container {
   max-width: 80vw;
   margin: 0 auto;
@@ -71,22 +79,25 @@ form {
   background-color: white;
   padding: 2rem;
   border-radius: 1rem;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.35);
 }
 
 input {
   display: block;
   width: 100%;
   padding: 1rem 1.5rem;
-  margin-bottom: 1.2rem;
+  margin-top: 1rem;
   border: 1px solid var(--grayish-blue);
   border-radius: 0.5rem;
   font-family: inherit;
   font-size: 1rem;
   font-weight: 600;
+  outline: none;
+  box-shadow: 0 3px hsla(246, 15%, 70%, 0.400);
   transition: all 0.2s ease-in-out;
 }
 
-input.error {
+.field-group.error input {
   border: 1px solid var(--red);
 }
 
@@ -103,10 +114,16 @@ button {
   color: white;
   border: none;
   border-radius: 1rem;
+  box-shadow: 0 3px hsl(154, 56%, 44%);
   font-family: inherit;
   font-size: 1rem;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: hsl(154, 82%, 65%);
 }
 
 small {
@@ -121,4 +138,54 @@ small span {
   color: var(--red);
   font-weight: 600;
   cursor: pointer;
+}
+
+.error-icon {
+  position: relative;
+  top: 57px;
+  left: 90%;
+}
+
+.error-text {
+  text-align: right;
+  font-size: 14px;
+  color: var(--red);
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    background-image: url('./images/bg-intro-mobile.png');
+    flex-direction: column;
+    height: 100%;
+    padding: 2em 0;
+    gap: 2rem;
+  }
+  
+  h1 {
+    font-size: 2.6rem;
+  }
+  
+  h4 {
+    font-size: 1.25rem;
+  }
+  
+  form {
+    padding: 1.5rem;
+  }
+  
+  input {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  button {
+    padding: 0.75rem 0;
+    font-size: 0.9rem;
+  }
+
+  .error-icon {
+    top: 50px;
+    left: 86%;
+  }
+  
 }

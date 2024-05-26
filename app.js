@@ -4,6 +4,7 @@ const firstName = document.querySelector('.firstName');
 const lastName = document.querySelector('.lastName');
 const email = document.querySelector('.email');
 const password = document.querySelector('.password');
+const inputs = form.querySelectorAll('input');
 
 console.log(firstName);
 
@@ -45,6 +46,22 @@ form.addEventListener('submit', (e) => {
   } else {
     password.classList.remove('error');
   }
+
+  // Check if all fields are valid
+  inputs.forEach((input) => {
+    if (!input.value) {
+      input.parentElement.classList.add('error');
+    } else {
+      input.parentElement.classList.remove('error');
+      if (input.type == 'email') {
+        if (!validateEmail(input.value)) {
+          input.parentElement.classList.add('error');
+        } else {
+          input.parentElement.classList.remove('error');
+        }
+      }
+    }
+  })
 });
 
 //Validate email
@@ -53,3 +70,4 @@ function validateEmail(email) {
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
+
