@@ -5,6 +5,9 @@ const lastName = document.querySelector('.lastName');
 const email = document.querySelector('.email');
 const password = document.querySelector('.password');
 const inputs = form.querySelectorAll('input');
+const showPass = document.querySelector('#show-pass');
+const passwordField = document.querySelector('#password');
+
 
 console.log(firstName);
 
@@ -62,7 +65,28 @@ form.addEventListener('submit', (e) => {
       }
     }
   })
+
+  // Show password
+  showPass.addEventListener('click', function() {
+    // Toggle the icon class
+    this.classList.toggle("fa-eye-slash");
+    this.classList.toggle("fa-eye");
+
+    // Toggle the password field type
+    const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+    passwordField.setAttribute("type", type);
+  });
+
+  // Optional: Initial setup to show the correct icon based on the initial state
+  if (passwordField.getAttribute("type") === "password") {
+    showPass.classList.add("fa-eye");
+    
+  } else {
+    showPass.classList.add("fa-eye-slash");
+  }
 });
+
+
 
 //Validate email
 function validateEmail(email) {

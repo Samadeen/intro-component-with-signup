@@ -15,6 +15,7 @@
     <title>Frontend Mentor | Intro component with sign up form</title>
     <link rel="stylesheet" href="./styles.css" />
     <script src="./app.js" defer></script>
+    <script src="https://kit.fontawesome.com/e98c27c3ea.js" crossorigin="anonymous"></script>
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   </head>
   <body>
@@ -54,7 +55,8 @@
             <div class="field-group">
               <label for="password"></label>
               <img src="images/icon-error.svg" class="error-icon" alt="error image">
-              <input type="password" class="password" name="password" placeholder="Password" />
+              <input type="password" class="password" id="password" name="password" placeholder="Password" />
+              <i class="fa-regular fa-eye" id="show-pass"></i>
               <p class="error-text">Password cannot be empty</p>
             </div>
           
