@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [View webpage](https://omowunmikamil.github.io/intro-component-with-signup/)
+- Solution URL: [View my solution here](https://www.frontendmentor.io/solutions/responsive-landing-page-hover-stats-error-message-password-visible-xuiZnAWb24)
+- Live Site URL: [View live webpage](https://omowunmikamil.github.io/intro-component-with-signup/)
 
 ## My process
 
@@ -50,8 +50,6 @@ Users should be able to:
 I learned to replicate the error states using Javascript.
 Add an eyes icon on the password input to toggle the password between visible and invisible
 And how to make the website responsive on all screen using less CSS  snytax
-
-To see how you can add code snippets, see below:
 
 ```html
 <h1>Some HTML code I'm proud of</h1>
