@@ -4,6 +4,10 @@ const firstName = document.querySelector('.firstName');
 const lastName = document.querySelector('.lastName');
 const email = document.querySelector('.email');
 const password = document.querySelector('.password');
+const inputs = form.querySelectorAll('input');
+const showPass = document.querySelector('#show-pass');
+const passwordField = document.querySelector('#password');
+
 
 console.log(firstName);
 
@@ -45,7 +49,44 @@ form.addEventListener('submit', (e) => {
   } else {
     password.classList.remove('error');
   }
+
+  // Check if all fields are valid
+  inputs.forEach((input) => {
+    if (!input.value) {
+      input.parentElement.classList.add('error');
+    } else {
+      input.parentElement.classList.remove('error');
+      if (input.type == 'email') {
+        if (!validateEmail(input.value)) {
+          input.parentElement.classList.add('error');
+        } else {
+          input.parentElement.classList.remove('error');
+        }
+      }
+    }
+  })
+
+  // Show password
+  showPass.addEventListener('click', function() {
+    // Toggle the icon class
+    this.classList.toggle("fa-eye-slash");
+    this.classList.toggle("fa-eye");
+
+    // Toggle the password field type
+    const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+    passwordField.setAttribute("type", type);
+  });
+
+  // Optional: Initial setup to show the correct icon based on the initial state
+  if (passwordField.getAttribute("type") === "password") {
+    showPass.classList.add("fa-eye");
+    
+  } else {
+    showPass.classList.add("fa-eye-slash");
+  }
 });
+
+
 
 //Validate email
 function validateEmail(email) {
@@ -53,3 +94,4 @@ function validateEmail(email) {
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
+
